@@ -1,0 +1,113 @@
+\documentclass[amsmath,onecolumn]{aastex}
+
+\begin{document}
+
+%\title{GW170817: Environment\\The Lazy Theorist's View}
+
+%\author{Ilya Mandel\footnote{imandel@star.sr.bham.ac.uk}}
+
+%\date{15/09/2017}
+
+%\maketitle
+
+\begin{center}
+{\bf Cluster dynamics: a primer}\\
+\vspace{0.2in}
+Ilya Mandel et al.\\
+ilya.mandel@monash.edu\\
+(Dated: 11/02/2019)\\
+\end{center}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bel}[1]{\begin{equation}\label{#1}}
+\newcommand{\ba}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+\newcommand{\bal}[1]{\begin{eqnarray}\label{#1}}
+
+\newcommand{\vdisp}{v_\textrm{disp}}
+\newcommand{\vorb}{v_\textrm{orb}}
+\newcommand{\tcross}{\tau_\textrm{cross}}
+\newcommand{\tint}{\tau_\textrm{int}}
+\newcommand{\tGW}{\tau_\textrm{GW}}
+\newcommand{\tH}{\tau_\textrm{H}}
+\newcommand{\tbinform}{\tau_\textrm{bin,form}}
+\newcommand{\ahard}{a_\textrm{hard}}
+\newcommand{\aeject}{a_\textrm{eject}}
+
+\newcommand{\ilya}[1]{}
+
+
+[{\it Warning: These notes focus on deriving appropriate scalings; constant factors of order unity are not traced in a self-consistent manner.}]
+
+We will be dealing with an N-body non-relativistic gravitationally interacting system ($N \gg 1$), which we will refer to as a {\it cluster}.  For now, assume a single mass species with component mass $m$, so the total cluster mass is $M = N m$.  Further assume a spherically symmetric cluster of size $R$.\footnote{There are different definitions for the size (half-mass radius, half-light radius, $R_{200}$, etc.) and different radial density profiles (uniform, Spitzer, isothermal, Plummer, King, NFW, etc.).  We will ignore these complications for now.}  The number density is then
+\be
+n \sim \frac{N}{R^3}\ ,
+\ee
+the typical velocity dispersion is 
+\be 
+\vdisp \sim \sqrt{\frac{GM}{R}} = \sqrt{\frac{GNm}{R}}
+\ee
+and the escape velocity is a few times $\vdisp$.
+
+
+Consider a binary with orbital separation (semi-major axis) $a$, and corresponding orbital velocity 
+\be
+\vorb \sim \sqrt{\frac{Gm}{a}}\ .
+\ee
+This binary will gravitationally interact with single stars flying by with typical velocity $\vdisp$.   If the orbital energy $- Gm^2 / (2a)$ is smaller in magnitude than the kinetic energy of the interacting object $m \vdisp^2 /2$, i.e., $\vorb \lesssim \vdisp$, the so-called {\it soft} binary is likely to be disrupted by the interaction.  If, on the other hand, the binary is {\it hard} and $\vorb > \vdisp$, then $2+1$ dynamical interactions will further harden (tighten) the binary \citep{Heggie:1975}.  \ilya{[Add explanation.]}  Thus, hard binaries harden while soft binaries are destroyed, with the boundary falling at 
+\be
+\ahard \sim \frac{Gm}{\vdisp^2} \sim \frac{R}{N}\ .
+\ee  
+
+On average, interactions with stars whose total mass is a few times the mass of the binary are necessary to harden the binary by one e-folding of semimajor axis \citep{Quinlan:1996}.   \ilya{[Add explanation]} Typically, the lightest of the three interacting objects will be ejected from the binary; thus, if the interloper is heavier than either of the binary components, it is likely to substitute in.  Such interactions will also cause the binary to sample a thermal eccentricity distribution, $p(e) = 2e$.\footnote{In practice, the neither the energy distribution nor the eccentricity distribution ever reach the thermal distribution \citep{Geller:2019}.}
+
+  
+
+Even in the absence of primordial binaries, binaries will generically form through three-body dynamical interactions (a third body is necessary to carry away the excess energy in order to create a bound system).  In order to form a hard binary, it is necessary to bring three stars to a distance  $\lesssim \ahard$ from each other.  There are $\sim N^3$ distinct volumes of radius $\ahard$ in the whole cluster of size $R$.  The probability of finding three of $N$ objects within any of these at a given time is $\approx C_3^N \left(N^{-3}\right)^3 \approx N^{-6}/6$, and the probability that at least one of the small volumes will have 3 objects is $\approx N^3 \times N^{-6}/6 \sim N^{-3}$.  The timescale for the objects to be re-arranged between volumes, i.e., the timescale for an object to cross a given volume while traveling at $\vdisp$, is $\sim (R/N)/\vdisp$.  Therefore, the timescale for a binary to form is 
+\be
+\tbinform \sim \frac{R}{N\vdisp} N^3 = \frac{N^2 R}{\vdisp} \sim \frac{N^2 R^{3/2}}{(GNm)^{1/2}}\sim N^2 \tcross\ , 
+\ee
+where $\tcross \sim R^{3/2} \left(GM\right)^{-1/2}$ is the cluster crossing timescale.
+
+The rate at which interlopers will strongly interact with a given binary, i.e., pass by within a distance $a$ of the binary, is $\Gamma = n \sigma \vdisp$, where $\sigma$ is the interaction cross-section.  For soft binaries, the interaction cross-section is just the geometrical cross-section, $\sigma \sim \pi a^2$.  However, when the binary is hard, the relatively slowly moving interlopers experience gravitational focusing.  \ilya{General formula.}  Consider the extreme case $\vorb \gg \vdisp$, which allows us to treat the binary as a point particle of mass $2m$.  If the interloper approaches the binary from infinity with impact parameter $b$, it has an initial angular momentum $m \vdisp b$.  If the periapsis distance is $a$, the velocity at periapsis is very nearly $\sqrt{4 G m / a}$ and the angular momentum there is $m \sqrt{4 G m a}$.  Thus, conservation of angular momentum dictates that $b \sim 2\sqrt{G m a}/\vdisp$, and the cross-section for interlopers to get within a distance $a$ of the binary is $\pi b^2 \sim 4\pi G m a / \vdisp^2$.  Note that the cross-section scales linearly rather than quadratically with $a$ once gravitational focusing is included.   The interaction timescale is then
+\be
+\tint = \Gamma^{-1} \sim \frac{1}{n\sigma \vdisp} \sim \frac{\vdisp}{n G m a}.
+\ee
+For equal-mass binaries and interlopers of the same mass, only $\it{O}(1)$ interactions are needed to harden the binary by a factor of $\sim 2$.  Because the last e-folding in hardening the binary takes the longest time, $\tint$ is a reasonable order-of-magnitude approximation for both the time to the next interaction and for the time it has taken the binary to harden to the current orbital separation through three-body $2+1$ interactions.  \ilya{$2+2$ interactions?}
+
+Because each interaction carries away a significant fraction of the binary's orbital energy, the interloper is kicked with a velocity $\sim \vorb$.  Conservation of linear momentum for the binary--interloper system therefore implies that the binary must get a recoil kick with a velocity $\sim \vorb/2$.  The escape velocity for a globular cluster is only a factor of a few greater than the velocity dispersion (e.g., if $\vdisp = 10$ km/s, the escape velocity may be $\lesssim 50$ km/s).  Thus, recoil kicks will eject the binary once its orbital velocity reaches $\vorb \approx 10 \vdisp$.  Since $\vorb \sim \vdisp$ at the hard-soft binary, and $\vorb \propto a^{-1/2}$, the binary can reach a minimum semimajor axis $\aeject$ approximately two orders of magnitude smaller than $\ahard$ before being ejected.  \ilya{[Expand for interlopers with a different mass.]} Binaries tighter than 
+\be
+\aeject \sim 0.01 \ahard
+\ee
+can only remain in the cluster if gravitational-wave hardening takes over as the dominant forcing mechanism before the binary reaches this orbital separation and can be ejected.
+
+Thus, the fate of binaries is determined by a comparison of $\tint$, the Hubble time $\tH=14$ Gyr, and the gravitational-wave merger timescale $\tGW$ \citep{Peters:1964}:
+\ba
+\tGW (e=0) &=& 1.6\ \textrm{Gyr} \left(\frac{a}{0.01\ \textrm{AU}}\right)^4 \left(\frac{m}{M_\odot}\right)^{-3}\\
+\tGW (e \to 1) &=& 32\ \textrm{Gyr} \left(\frac{a}{0.01\ \textrm{AU}}\right)^4 \left(\frac{m}{M_\odot}\right)^{-3} (1-e)^{7/2} \ . \nonumber
+\ea
+Several cases are possible:
+\begin{itemize}
+\item If the total 2+1 hardening and GW emission timescale $\tint+\tGW (e=0) < \tH $ at some $a$ between $\ahard$ and $\aeject$, the binary will merge inside the cluster through a sequence of $2+1$ hardening interactions and gravitational-wave emission.  
+\item Otherwise, if $\tint+\tGW (e=0) \geq \tH $ for all $a \in [\aeject, \ahard]$, but $\tint<\tH$ at $\aeject$, the binary may either merge inside the cluster if $2+1$ interactions happen to drive it to a sufficiently high eccentricity to reduce $\tGW$ so that $\tint+\tGW (e) < \tH$, or it may be ejected, and may or may not subsequently evolve outside the cluster depending on its $\tGW$ at ejection.  
+\item If neither of these holds, i.e.,  if $\tint+\tGW (e=0) \geq \tH $ for all $a \in [\aeject, \ahard]$ {\it and} $\tint > \tH$ at $\aeject$ the binary will remain in the cluster and stall at the orbital separation at which $\tint$ exceeds $\tH$.    
+\end{itemize}
+
+...
+
+A couple more timescales are worth mentioning.  The relaxation timescale is the time for the cluster to thermalise, i.e., for a typical star to change its velocity by order of its velocity.  That can be achieved by a single strong encounter with an interloper approaching within a distance $\ahard$.  This is just $\tint (\ahard) \sim \vdisp^3 G^{-2} m^{-2} n^{-1}$.  It turns out that relaxation is more efficiently driven by many weak scatterings rather than a few strong ones, which give rise to a so-called Coulomb logarithm; the relaxation time is a factor of $\sim \log N$ lower than $\tint (\ahard)$, or $\sim N \tcross / \log N$ using $n \sim N/R^3$. \ilya{Explain Coulomb log, http://www.astro.caltech.edu/~george/ay20/Ay20-Lec15x.pdf}  
+
+The evaporation timescale (the time for a significant fraction of the objects in the cluster to be ejected) is $\sim 100$ times longer than the relaxation timescale, because $< 1\%$ of stars with a Maxwellian velocity distribution centred on $\vdisp$ will exceed the escape velocity and evaporate from the cluster, and a relaxation time is required to repopulate this high-velocity tail of the stellar phase space distribution. \ilya{Clarify and cite https://arxiv.org/pdf/astro-ph/0007258.pdf .}
+
+
+
+\bibliographystyle{hapj}
+\bibliography{Mandel}
+
+\end{document}
+
+https://www.aei.mpg.de/1784249/colldyn.pdf
+Binney and Tremaine
+Spitzer book
+http://www.astro.caltech.edu/~george/ay20/Ay20-Lec15x.pdf
